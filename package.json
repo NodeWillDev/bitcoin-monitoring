@@ -1,12 +1,23 @@
 {
   "name": "bitcoin-monitoring",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "monitoring bitcoin",
+  "homepage": "https://github.com/NodeWillDev/bitcoin-monitoring#readme",
+  "bugs": {
+    "url": "https://github.com/NodeWillDev/bitcoin-monitoring/issues"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NodeWillDev/bitcoin-monitoring.git"
+  },
   "license": "ISC",
-  "description": ""
+  "author": "NodeWillDev",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^34.0.1"
+  }
 }
