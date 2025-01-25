@@ -4,8 +4,8 @@ app.whenReady().then(() => {
   const window = new BrowserWindow({
     width: 800,
     height: 600,
-    frame: false,
+    frame: true,
   });
-
+  window.setAlwaysOnTop(true, "dock");
   window.loadFile("./src/index.html");
 });
