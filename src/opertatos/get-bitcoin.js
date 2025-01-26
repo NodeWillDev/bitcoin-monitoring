@@ -6,13 +6,16 @@ const decoder = new TextDecoder("utf-8");
 export const getBitcoin = async () => {
   const data = await fetch("https://coinmarketcap.com/currencies/bitcoin/", {
     method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
   });
   let done = false;
   const reader = data.body.getReader();
 
   while (!done) {
     const { value, done: streamDone } = await reader.read();
-    done = streamDone;
     const text = decoder.decode(value, {
       stream: true,
     });
