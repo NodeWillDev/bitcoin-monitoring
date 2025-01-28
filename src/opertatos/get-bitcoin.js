@@ -29,3 +29,4 @@ export const getBitcoin = async () => {
     }
   }
 };
+console.log(await getBitcoin());
