@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "Inria Sans";
+  src: url("./assets/fonts/inria-sans/InriaSans-Light.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #1d2f78;
+  /* color: #ffffff; */
+  overflow-x: hidden;
+  font-size: 1.4rem;
+}
+
+span {
+  color: #ffffff;
+}
+
+body .container {
+  display: flex;
+  font-family: "Inria Sans";
+  position: relative;
+}
+body .container .header {
+  width: 100%;
+  height: auto;
+  position: absolute;
+}
+
+body .container .header .title {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body .container .header .title h3 {
+  font-size: 1.6em;
+  text-align: center;
+  color: #5cf45c;
+  font-weight: bold;
+  letter-spacing: 2.2px;
+}
+
+body .container .header .title h3 span {
+  font-size: 0.87em;
+  font-weight: 300;
+}
