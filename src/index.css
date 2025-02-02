@@ -7,6 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: #ffffff;
 }
 
 html {
@@ -15,24 +16,20 @@ html {
 
 body {
   background-color: #1d2f78;
-  /* color: #ffffff; */
   overflow-x: hidden;
   font-size: 1.4rem;
-}
-
-span {
-  color: #ffffff;
 }
 
 body .container {
   display: flex;
   font-family: "Inria Sans";
   position: relative;
+  flex-wrap: wrap;
 }
 body .container .header {
   width: 100%;
   height: auto;
-  position: absolute;
+  position: relative;
 }
 
 body .container .header .title {
@@ -53,4 +50,68 @@ body .container .header .title h3 {
 body .container .header .title h3 span {
   font-size: 0.87em;
   font-weight: 300;
+}
+
+body .container .header .title .subtitle {
+  font-size: 0.87em;
+  font-weight: 300;
+  margin-left: 20px;
+}
+
+body .container .header .title .subtitle span {
+  font-size: 1.2em;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+body .container .table {
+  width: 100%;
+  height: 100%;
+  margin-top: 30px;
+}
+
+body .container .table table {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+body .container .table table tr {
+  width: 100%;
+  margin-top: 30px;
+  position: relative;
+}
+
+body .container .table table tr th {
+  margin-top: 30px;
+  font-size: 1.4em;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+body .container .table table tr td {
+  font-size: 1.2em;
+  padding-top: 20px;
+  position: relative;
+  letter-spacing: 1.5px;
+}
+body .container .table table tr th:nth-child(1)::after,
+body .container .table table tr th:nth-child(2)::after,
+body .container .table table tr th:nth-child(3)::after {
+  position: absolute;
+  content: "";
+  height: 100vh;
+  width: 1px;
+  background-color: #5cf45c;
+  left: 100%;
+}
+
+body .container .table table tr td::before {
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 100vw;
+  background-color: #5cf45c;
+  top: 25%;
+  left: 0;
 }
