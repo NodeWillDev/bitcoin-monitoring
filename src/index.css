@@ -17,6 +17,7 @@ html {
 body {
   background-color: #1d2f78;
   overflow-x: hidden;
+  overflow-y: hidden;
   font-size: 1.4rem;
 }
 
