@@ -13,6 +13,6 @@ app.whenReady().then(async () => {
       contextIsolation: true,
     },
   });
-  // window.webContents.openDevTools();
+  window.webContents.openDevTools();
   window.loadFile("./src/index.html");
 });

@@ -35,6 +35,13 @@ document.getElementById("percent").innerHTML = `${data.percent.toFixed(
   2
 )}% (1d)`;
 
-console.log(data.percent);
+let difference = document.querySelector(".table").children[0].children[0];
+for (let i = 1; i < difference.children.length; ++i) {
+  difference.children[i].children[3].getAttribute("data-value").split(" ")[0] ==
+  "+"
+    ? (difference.children[i].children[3].style.color = "#5cf45c")
+    : (difference.children[i].children[3].style.color = "#FF4646");
+}
+
 //await getBitcoinData();
 // }, 126000);
