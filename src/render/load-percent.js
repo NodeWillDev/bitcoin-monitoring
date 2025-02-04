@@ -30,14 +30,29 @@ document.getElementById("percent").innerHTML = `${data.percent
   .toFixed(2)
   .replace("-", "")}% (1d)`;
 
-console.log(Object.entries(data.points)[0][1].c[0]);
-
 let difference = document.querySelector(".table").children[0].children[0];
-for (let i = 1; i < difference.children.length; ++i) {
-  difference.children[i].children[3].getAttribute("data-value").split(" ")[0] ==
-  "+"
-    ? (difference.children[i].children[3].style.color = "#5cf45c")
-    : (difference.children[i].children[3].style.color = "#FF4646");
-}
-//await getBitcoinData();
-// }, 126000);
+data.points.forEach((item) => {
+  let tr = document.createElement("tr");
+  let key = ["date", "time", "value", "difference"];
+  for (let i = 0; i < key.length; ++i) {
+    let td = document.createElement("td");
+    td.innerHTML =
+      key[i] == "value" || key[i] == "difference"
+        ? Number(item[key[i]]).toLocaleString("en-US", {
+            currency: "usd",
+          })
+        : item[key[i]];
+    console.log(
+      key[i] == "value" || key[i] == "difference"
+        ? Number(item[key[i]]).toLocaleString("en-US", {
+            currency: "usd",
+          })
+        : item[key[i]]
+    );
+    if (key[i] == "difference") {
+      td.style.color = item.difference < 0 ? "#FF4646" : "#5cf45c";
+    }
+    tr.appendChild(td);
+  }
+  difference.appendChild(tr);
+});

@@ -96,6 +96,9 @@ body .container .table table tr td {
   position: relative;
   letter-spacing: 1.5px;
 }
+body .container .table table tr td:last-child {
+  font-weight: bold;
+}
 body .container .table table tr th:nth-child(1)::after,
 body .container .table table tr th:nth-child(2)::after,
 body .container .table table tr th:nth-child(3)::after {

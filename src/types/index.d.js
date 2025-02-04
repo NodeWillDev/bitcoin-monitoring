@@ -10,7 +10,11 @@
  */
 
 /**
- * @typedef {Object.<string, DataPoint>} Points
+ * @typedef {Object} Points
+ * @property {String} date
+ * @property {String} time
+ * @property {Number} value
+ * @property {Number} difference
  */
 
 /**
@@ -34,5 +38,5 @@
  * @property {Number} last
  * @property {Number} current
  * @property {String} update
- * @property {Points} [points]
+ * @property {Points[]} [points]
  */
