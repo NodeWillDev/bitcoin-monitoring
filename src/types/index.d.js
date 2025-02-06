@@ -37,6 +37,7 @@
  * @property {Number} percent
  * @property {Number} last
  * @property {Number} current
+ * @property {Number} base
  * @property {String} update
  * @property {Points[]} [points]
  */

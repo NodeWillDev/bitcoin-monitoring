@@ -6,6 +6,12 @@ const data = await getBitcoinData();
 document.body.style.backgroundColor = data.percent < 0 ? "#662929" : "#1D2F78";
 document.getElementById("title").style.color =
   data.percent < 0 ? "#FF4646" : "#5cf45c";
+document.getElementById("base").innerHTML = `$ ${data.base.toLocaleString(
+  "en-US",
+  {
+    currency: "USD",
+  }
+)}`;
 
 document.getElementById("current").innerHTML = `$${data.current.toLocaleString(
   "en-US",
@@ -42,13 +48,6 @@ data.points.forEach((item) => {
             currency: "usd",
           })
         : item[key[i]];
-    console.log(
-      key[i] == "value" || key[i] == "difference"
-        ? Number(item[key[i]]).toLocaleString("en-US", {
-            currency: "usd",
-          })
-        : item[key[i]]
-    );
     if (key[i] == "difference") {
       td.style.color = item.difference < 0 ? "#FF4646" : "#5cf45c";
     }

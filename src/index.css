@@ -31,7 +31,7 @@ body .container .header {
   width: 100%;
   height: auto;
   position: relative;
-  margin: 25px 0;
+  margin-bottom: 35px;
 }
 
 body .container .header .title {
@@ -67,6 +67,26 @@ body .container .header .title .subtitle span {
   font-weight: bold;
 }
 
+body .container .header .contents {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+body .container .header .contents h4 {
+  font-size: 1.4em;
+  letter-spacing: 2px;
+  font-weight: 200;
+  color: #ffff92;
+}
+
+body .container .header .contents h4 span {
+  font-size: 0.9em;
+  color: white;
+  font-weight: bold;
+}
+
 body .container .table {
   width: 100%;
   height: 100%;
@@ -89,6 +109,7 @@ body .container .table table tr th {
   margin-top: 30px;
   font-size: 1.4em;
   letter-spacing: 2px;
+  max-width: 50px;
   position: relative;
 }
 
