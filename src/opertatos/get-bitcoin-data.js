@@ -34,7 +34,7 @@ const result = {
 
 export const getBitcoinData = async () => {
   /**
-   * @type {CoinmarketcapData}
+   * @type {BitcoinData}
    */
   const result = await (
     await fetch(
