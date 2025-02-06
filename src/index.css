@@ -31,13 +31,15 @@ body .container .header {
   width: 100%;
   height: auto;
   position: relative;
+  margin: 25px 0;
 }
 
 body .container .header .title {
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  margin-left: 30px;
 }
 
 body .container .header .title h3 {
