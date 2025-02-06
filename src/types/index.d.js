@@ -14,7 +14,13 @@
  * @property {String} date
  * @property {String} time
  * @property {Number} value
- * @property {Number} difference
+ * @property {Differences} difference
+ */
+
+/**
+ * @typedef {Object} Differences
+ * @property {number} base
+ * @property {number} last
  */
 
 /**

@@ -109,7 +109,8 @@ body .container .table table tr th {
   margin-top: 30px;
   font-size: 1.4em;
   letter-spacing: 2px;
-  max-width: 50px;
+  max-width: 100px;
+
   position: relative;
 }
 
@@ -122,9 +123,7 @@ body .container .table table tr td {
 body .container .table table tr td:last-child {
   font-weight: bold;
 }
-body .container .table table tr th:nth-child(1)::after,
-body .container .table table tr th:nth-child(2)::after,
-body .container .table table tr th:nth-child(3)::after {
+body .container .table table tr th:nth-child(-n + 4)::after {
   position: absolute;
   content: "";
   height: 100vh;
