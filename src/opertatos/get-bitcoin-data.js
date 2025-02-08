@@ -1,3 +1,7 @@
+/**
+ * XD
+ */
+
 const result = {
   data: {
     points: {
