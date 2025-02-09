@@ -124,4 +124,5 @@ export const getBitcoinData = async () => {
     base,
   };
 };
-console.log((await getBitcoinData()).points);
+
+console.log(await getBitcoinData());

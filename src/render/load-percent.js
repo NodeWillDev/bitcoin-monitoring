@@ -37,21 +37,20 @@ document.getElementById("percent").innerHTML = `${data.percent
   .replace("-", "")}% (1d)`;
 
 let difference = document.querySelector(".table").children[0].children[0];
+
 data.points.forEach((item) => {
   let tr = document.createElement("tr");
-  let key = ["date", "time", "value", "difference"];
-  for (let i = 0; i < key.length; ++i) {
+  for (let i = 0; i < document.querySelectorAll("tr")[0].children.length; i++) {
     let td = document.createElement("td");
     td.innerHTML =
-      key[i] == "value" || key[i] == "difference"
-        ? Number(item[key[i]]).toLocaleString("en-US", {
-            currency: "usd",
-          })
-        : item[key[i]];
-    if (key[i] == "difference") {
-      td.style.color = item.difference < 0 ? "#FF4646" : "#5cf45c";
-    }
+      Object.keys(item)[i] != "difference"
+        ? item[Object.keys(item)[i]] ?? item.difference.base
+        : item.difference.last.toFixed(2);
     tr.appendChild(td);
+    console.log(item);
   }
+
+  // td.style.color = item.difference < 0 ? "#FF4646" : "#5cf45c";
+
   difference.appendChild(tr);
 });
