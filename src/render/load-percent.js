@@ -42,15 +42,25 @@ data.points.forEach((item) => {
   let tr = document.createElement("tr");
   for (let i = 0; i < document.querySelectorAll("tr")[0].children.length; i++) {
     let td = document.createElement("td");
-    td.innerHTML =
-      Object.keys(item)[i] != "difference"
-        ? item[Object.keys(item)[i]] ?? item.difference.base
-        : item.difference.last.toFixed(2);
-    tr.appendChild(td);
-    console.log(item);
-  }
+    td.innerHTML = (() => {
+      let key = Object.keys(item)[i];
 
-  // td.style.color = item.difference < 0 ? "#FF4646" : "#5cf45c";
+      let value =
+        key !== "difference"
+          ? item[key] ?? item.difference.base.toFixed(2)
+          : item.difference.last.toFixed(2);
+      td.style.color =
+        (key === "difference" || key === undefined) &&
+        (td.style.color = Number(value) < 1 ? "#FF4646" : "#5cf45c");
+
+      return !isNaN(value)
+        ? `$ ${Number(value).toLocaleString("en-US", {
+            currency: "usd",
+          })}`
+        : value;
+    })();
+    tr.appendChild(td);
+  }
 
   difference.appendChild(tr);
 });

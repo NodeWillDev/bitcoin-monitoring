@@ -15,6 +15,6 @@ app.whenReady().then(async () => {
     },
   });
 
-  window.webContents.openDevTools();
+  // window.webContents.openDevTools();
   window.loadFile("./src/index.html");
 });
