@@ -49,10 +49,14 @@
  */
 
 /**
- * @typedef {Object} MenuItem
- * @property {Array<'line' | MenuItem>} menu
+ * @callback MenuAction
+ * @returns {void}
  */
 
 /**
- * @typedef {Array<'line' | MenuItem>} ShapeContextMenu
+ * @typedef {Object<string, MenuAction | ShapeContextMenu>} ShapeContextMenu
+ */
+
+/**
+ * @type {ShapeContextMenu}
  */

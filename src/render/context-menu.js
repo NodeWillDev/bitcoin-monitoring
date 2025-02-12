@@ -7,12 +7,6 @@ const context = new ContextMenu();
 document.addEventListener("contextmenu", (event) => {
   event.preventDefault();
   context.change();
-  if (!context.isOpen()) {
-    element.style.display = "none";
-    // document.body.style.backgroundColor = "rgba(0, 0, 0, 0.3)";
-    // document.body.style.filter = "blur(2px)";
-  } else {
-    element.style.display = "block";
-  }
+  element.style.display = !context.isOpen() ? "none" : "block";
   element.style.transform = `translate(${event.pageX}px, ${event.pageY}px)`;
 });

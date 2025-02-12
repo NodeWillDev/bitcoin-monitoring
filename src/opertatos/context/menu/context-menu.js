@@ -17,14 +17,16 @@ export class ContextMenu {
   /**
    * @type {ShapeContextMenu}
    * @private
-   * @todo
    */
   shape = null;
+
   /**
    * @param {string} name
+   * @param {ShapeContextMenu} shape
    */
   constructor(name, shape) {
     this.name = name;
+    this.shape = shape;
     if (!this.isMenu(name)) ContextMenu.menus[name] = shape;
   }
 
@@ -61,4 +63,6 @@ export class ContextMenu {
   setOpen(value) {
     this.open = value;
   }
+
+  show() {}
 }
