@@ -47,3 +47,12 @@
  * @property {String} update
  * @property {Points[]} [points]
  */
+
+/**
+ * @typedef {Object} MenuItem
+ * @property {Array<'line' | MenuItem>} menu
+ */
+
+/**
+ * @typedef {Array<'line' | MenuItem>} ShapeContextMenu
+ */

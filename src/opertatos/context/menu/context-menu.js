@@ -15,7 +15,7 @@ export class ContextMenu {
   name = null;
 
   /**
-   * @type {Shape}
+   * @type {ShapeContextMenu}
    * @private
    * @todo
    */
