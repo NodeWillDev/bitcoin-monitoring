@@ -15,14 +15,14 @@ html {
 }
 
 body {
-  background-color: #1d2f78;
+  background: #1d2f78;
   overflow-x: hidden;
   overflow-y: hidden;
+  font-family: "Inria Sans";
 }
 
 body .container {
   display: flex;
-  font-family: "Inria Sans";
   position: relative;
   flex-wrap: wrap;
 }
@@ -138,4 +138,26 @@ body .container .table table tr td::before {
   background-color: #5cf45c;
   top: 25%;
   left: 0;
+}
+
+body .context-menu {
+  font-size: 2em;
+  position: absolute;
+  padding: 5px;
+  display: none;
+  z-index: 10000;
+  background-color: rgba(104, 101, 115, 0.03);
+  backdrop-filter: blur(20px);
+  border-radius: 0 10px 10px 0px;
+  border-left: 1px solid white;
+}
+
+body .context-menu .menu-options {
+  padding: 2px;
+  cursor: default;
+}
+
+body .context-menu:has(.menu-options:hover) .menu-options:not(:hover) {
+  opacity: 0.3;
+  filter: blur(1px);
 }
