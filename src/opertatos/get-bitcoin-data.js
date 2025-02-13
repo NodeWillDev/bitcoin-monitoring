@@ -124,4 +124,4 @@ export const getBitcoinData = async () => {
   };
 };
 
-console.log(await getBitcoinData());
+// console.log(await getBitcoinData());

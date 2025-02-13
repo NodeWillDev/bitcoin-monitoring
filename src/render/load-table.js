@@ -20,8 +20,6 @@ document.getElementById("current").innerHTML = `$${data.current.toLocaleString(
   }
 )}`;
 
-console.log(data.current);
-
 document
   .getElementById("arrow")
   .setAttribute(

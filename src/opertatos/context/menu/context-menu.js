@@ -1,18 +1,9 @@
 export class ContextMenu {
-  /** @type {string,Object<ContextMenu>} */
-  static menus = {};
-
   /**
    * @type {Boolean}
    * @private
    */
   open = false;
-
-  /**
-   * @type {string}
-   * @private
-   */
-  name = null;
 
   /**
    * @type {ShapeContextMenu}
@@ -24,26 +15,8 @@ export class ContextMenu {
    * @param {string} name
    * @param {ShapeContextMenu} shape
    */
-  constructor(name, shape) {
-    this.name = name;
+  constructor(shape) {
     this.shape = shape;
-    if (!this.isMenu(name)) ContextMenu.menus[name] = shape;
-  }
-
-  /**
-   * @returns {ContextMenu}
-   */
-  getMenu() {
-    return ContextMenu.menus[this.name];
-  }
-
-  /**
-   * @private
-   * @param {string} name
-   * @return {Boolean}
-   */
-  isMenu(name) {
-    return name in ContextMenu.menus;
   }
 
   /** @return {Boolean} */
@@ -64,5 +37,18 @@ export class ContextMenu {
     this.open = value;
   }
 
-  show() {}
+  /**
+   * @param {Document} document
+   */
+  show(document) {
+    const element = document.querySelector(".context-menu");
+    console.log(this.shape);
+  }
+  /**
+   *
+   * @param {Document} document
+   */
+  hidden(document) {
+    document.querySelector(".context-menu").style.display = "none";
+  }
 }
