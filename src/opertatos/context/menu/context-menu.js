@@ -42,7 +42,19 @@ export class ContextMenu {
    */
   show(document) {
     const element = document.querySelector(".context-menu");
-    console.log(this.shape);
+    Object.entries(this.shape).forEach((item) => {
+      const [text, callback] = item;
+      const container = Object.assign(document.createElement("div"), {
+        className: "menu-options",
+      });
+      const span = Object.assign(document.createElement("span"), {
+        innerHTML: text,
+        onclick: () => callback(document),
+      });
+
+      container.appendChild(span);
+      element.append(container);
+    });
   }
   /**
    *
@@ -50,5 +62,10 @@ export class ContextMenu {
    */
   hidden(document) {
     document.querySelector(".context-menu").style.display = "none";
+    Array.from(document.querySelector(".context-menu").children).forEach(
+      (element) => {
+        element.remove();
+      }
+    );
   }
 }

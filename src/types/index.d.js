@@ -50,6 +50,7 @@
 
 /**
  * @callback MenuAction
+ * @param {Document} document
  * @returns {void}
  */
 
