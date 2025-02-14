@@ -153,11 +153,43 @@ body .context-menu {
 }
 
 body .context-menu .menu-options {
+  position: relative;
   padding: 2px;
   cursor: default;
+  width: calc(100% + 5px);
 }
 
 body .context-menu:has(.menu-options:hover) .menu-options:not(:hover) {
   opacity: 0.3;
   filter: blur(1px);
 }
+body .context-menu .menu-options span {
+  user-select: none;
+}
+body .context-menu .menu-options .sub-menu {
+  position: absolute;
+  background-color: red;
+  top: 0;
+  width: 100%;
+  left: 100%;
+  visibility: hidden;
+}
+
+.context-menu .menu-options:hover .sub-menu,
+.context-menu .menu-options .sub-menu:hover {
+  visibility: visible;
+}
+
+/* body .context-menu .menu-options .sub-menu .sub-menu {
+  position: absolute;
+  background-color: red;
+  top: 100%;
+  width: 100%;
+  left: 100%;
+  visibility: hidden;
+}
+
+.context-menu .menu-options .sub-menu:hover .sub-menu,
+.context-menu .menu-options .sub-menu .sub-menu:hover {
+  visibility: visible;
+} */

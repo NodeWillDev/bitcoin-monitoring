@@ -44,16 +44,19 @@ export class ContextMenu {
     const element = document.querySelector(".context-menu");
     Object.entries(this.shape).forEach((item) => {
       const [text, callback] = item;
-      const container = Object.assign(document.createElement("div"), {
-        className: "menu-options",
-      });
-      const span = Object.assign(document.createElement("span"), {
-        innerHTML: text,
-        onclick: () => callback(document),
-      });
+      if (typeof callback == "function") {
+        const container = Object.assign(document.createElement("div"), {
+          className: "menu-options",
+        });
+        const span = Object.assign(document.createElement("span"), {
+          innerHTML: text,
+          onclick: () => callback(document),
+        });
 
-      container.appendChild(span);
-      element.append(container);
+        container.appendChild(span);
+        element.append(container);
+        return;
+      }
     });
   }
   /**

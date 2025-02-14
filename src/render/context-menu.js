@@ -7,11 +7,19 @@ const context = new ContextMenu({
   "Test-1": (document) => console.log("test-1"),
   "Test-2": (document) => console.log("test-2"),
   "Test-3": (document) => console.log("test-3"),
+  "Sub-Menu": {
+    "sub-menu-1": (document) => console.log("sub-menu-1"),
+    "sub-menu-2": (document) => console.log("sub-menu-2"),
+    "sub-menu-3": (document) => console.log("sub-menu-3"),
+  },
 });
 document.addEventListener("contextmenu", (event) => {
   event.preventDefault();
   context.change();
-  element.style.display = !context.isOpen() ? "none" : "block";
-  element.style.transform = `translate(${event.pageX}px, ${event.pageY}px)`;
+
+  Object.assign(element.style, {
+    display: context.isOpen() ? "block" : "none",
+    transform: `translate(${event.pageX}px, ${event.pageY}px)`,
+  });
   context.isOpen() ? context.show(document) : context.hidden(document);
 });
