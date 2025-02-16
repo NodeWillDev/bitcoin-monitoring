@@ -83,11 +83,8 @@ export class ContextMenu {
    * @param {Document} document
    */
   hidden(document) {
-    document.querySelector(".context-menu").style.display = "none";
-    Array.from(document.querySelector(".context-menu").children).forEach(
-      (element) => {
-        element.remove();
-      }
-    );
+    const menu = document.querySelector(".context-menu");
+    menu.style.display = "none";
+    menu.replaceChildren();
   }
 }
