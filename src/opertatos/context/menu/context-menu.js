@@ -37,48 +37,48 @@ export class ContextMenu {
     this.open = value;
   }
 
-  test(document, parent, discovery = null) {
-    Object.entries();
-  }
-
   /**
    * @param {Document} document
    * @param {HTMLElement} parent
    * @param {ShapeContextMenu} discovery
    */
-  show(document, parent, discovery = null) {
-    Object.entries(discovery ? discovery : this.shape).forEach((item) => {
-      const [text, callback] = item;
-      const container = Object.assign(document.createElement("div"), {
+  show(document, parent, discovery = this.shape) {
+    for (const [text, callback] of Object.entries(discovery)) {
+      const container = this.createElement("div", {
         className: "menu-options",
       });
-      const span = Object.assign(document.createElement("span"), {
-        innerHTML: text,
-      });
-      if (typeof callback == "object") {
-        Object.entries(callback).forEach((item) => {
-          const [text, callback] = item;
-          const span = Object.assign(document.createElement("span"), {
-            innerHTML: text,
+      const span = this.createElement("span", { textContent: text });
+      if (typeof callback === "object") {
+        const submenu = this.createElement("div", { className: "sub-menu" });
+        for (const [subText, subCallback] of Object.entries(callback)) {
+          const subSpan = this.createElement("span", {
+            textContent: subText,
+            onclick:
+              typeof subCallback === "function"
+                ? () => subCallback(document)
+                : null,
           });
-          console.log(text);
-          if (typeof callback == "function")
-            span.onclick = () => callback(document);
-        });
-        span.classList.add(".sub-menu");
-        container.appendChild(span);
-        parent.append(container);
-        return;
-      }
-      if (typeof callback == "function")
+          submenu.appendChild(subSpan);
+        }
+        container.appendChild(submenu);
+      } else if (typeof callback === "function")
         span.onclick = () => callback(document);
-      else {
-        this.show(document, container, item);
-      }
+      else this.show(document, container, callback);
       container.appendChild(span);
-      parent.append(container);
-    });
+      parent.appendChild(container);
+    }
   }
+
+  /**
+   * @template {keyof HTMLElementTagNameMap} K
+   * @param {K} tag
+   * @param {Partial<HTMLElementTagNameMap[K]>} [props={}]
+   * @returns {HTMLElementTagNameMap[K]}
+   */
+  createElement(tag, props = {}) {
+    return Object.assign(document.createElement(tag), props);
+  }
+
   /**
    * @param {Document} document
    */
