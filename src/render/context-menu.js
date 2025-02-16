@@ -21,5 +21,7 @@ document.addEventListener("contextmenu", (event) => {
     display: context.isOpen() ? "block" : "none",
     transform: `translate(${event.pageX}px, ${event.pageY}px)`,
   });
-  context.isOpen() ? context.show(document) : context.hidden(document);
+  context.isOpen()
+    ? context.show(document, document.querySelector(".context-menu"))
+    : context.hidden(document);
 });

@@ -37,26 +37,46 @@ export class ContextMenu {
     this.open = value;
   }
 
+  test(document, parent, discovery = null) {
+    Object.entries();
+  }
+
   /**
    * @param {Document} document
+   * @param {HTMLElement} parent
+   * @param {ShapeContextMenu} discovery
    */
-  show(document) {
-    const element = document.querySelector(".context-menu");
-    Object.entries(this.shape).forEach((item) => {
+  show(document, parent, discovery = null) {
+    Object.entries(discovery ? discovery : this.shape).forEach((item) => {
       const [text, callback] = item;
-      if (typeof callback == "function") {
-        const container = Object.assign(document.createElement("div"), {
-          className: "menu-options",
+      const container = Object.assign(document.createElement("div"), {
+        className: "menu-options",
+      });
+      const span = Object.assign(document.createElement("span"), {
+        innerHTML: text,
+      });
+      if (typeof callback == "object") {
+        Object.entries(callback).forEach((item) => {
+          const [text, callback] = item;
+          const span = Object.assign(document.createElement("span"), {
+            innerHTML: text,
+          });
+          console.log(text);
+          if (typeof callback == "function")
+            span.onclick = () => callback(document);
         });
-        const span = Object.assign(document.createElement("span"), {
-          innerHTML: text,
-          onclick: () => callback(document),
-        });
-
+        span.classList.add(".sub-menu");
         container.appendChild(span);
-        element.append(container);
+        parent.append(container);
         return;
       }
+      if (typeof callback == "function")
+        span.onclick = () => callback(document);
+      else {
+        this.show(document, container, item);
+      }
+      container.appendChild(span);
+      parent.append(container);
     });
   }
   /**
