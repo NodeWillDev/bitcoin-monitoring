@@ -56,52 +56,17 @@ export class ContextMenu {
         });
         const submenu = this.createElement("div", { className: "sub-menu" });
 
-        // Recursivamente cria os itens do submenu
         this.show(document, submenu, callback);
 
         container.append(span, arrow, submenu);
       } else {
-        if (typeof callback === "function") {
+        if (typeof callback === "function")
           span.onclick = () => callback(document);
-        }
         container.appendChild(span);
       }
-
       parent.appendChild(container);
     }
   }
-
-  // show(document, parent, discovery = this.shape) {
-  //   for (const [text, callback] of Object.entries(discovery)) {
-  //     const container = this.createElement("div", {
-  //       className: "menu-options",
-  //     });
-  //     const span = this.createElement("span", { textContent: text });
-  //     if (typeof callback === "object") {
-  //       const arrow = this.createElement("i", {
-  //         className: "fa-sharp fa-solid fa-caret-right",
-  //       });
-  //       console.log(callback);
-  //       const submenu = this.createElement("div", { className: "sub-menu" });
-  //       for (const [subText, subCallback] of Object.entries(callback)) {
-  //         const subSpan = this.createElement("span", {
-  //           textContent: subText,
-  //           onclick:
-  //             typeof subCallback === "function"
-  //               ? () => subCallback(document)
-  //               : null,
-  //         });
-  //         submenu.appendChild(subSpan);
-  //       }
-  //       container.appendChild(submenu);
-  //       container.appendChild(arrow);
-  //     } else if (typeof callback === "function")
-  //       span.onclick = () => callback(document);
-  //     else this.show(document, container, callback);
-  //     container.appendChild(span);
-  //     parent.appendChild(container);
-  //   }
-  // }
 
   /**
    * @private

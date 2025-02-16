@@ -9,7 +9,7 @@ app.whenReady().then(async () => {
     height: 500,
     titleBarStyle: "hidden",
     backgroundColor: "rgba(0, 0, 0, 0.3)",
-    transparent: true,
+    // transparent: true,
     icon: nativeImage.createFromPath("./src/assets/icon/bitcoin.ico"),
     webPreferences: {
       sandbox: false,

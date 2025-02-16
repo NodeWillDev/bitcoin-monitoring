@@ -138,15 +138,13 @@ body .container .table table tr td::before {
   top: 25%;
   left: 0;
 }
-
 body .context-menu {
   font-size: 2em;
   position: absolute;
   padding: 5px;
   display: none;
   z-index: 10000;
-  background-color: rgba(104, 101, 115, 0.03);
-  backdrop-filter: blur(5px);
+  background-color: #3b1f49;
   border-radius: 0 10px 10px 0px;
   border-left: 1px solid white;
 }
@@ -161,48 +159,41 @@ body .context-menu .menu-options {
   width: calc(100% + 10px);
 }
 
-body .context-menu:has(.menu-options:hover) > .menu-options:not(:hover),
-body
-  .context-menu
-  .sub-menu:has(.menu-options:hover)
-  > .menu-options:not(:hover) {
-  opacity: 0.3;
-  filter: blur(1px);
-}
-
-.context-menu .menu-options .sub-menu {
+body .context-menu .menu-options .sub-menu {
   position: absolute;
   top: 0;
-  width: 100%;
   left: 100%;
+  width: 100%;
   visibility: hidden;
+  background-color: #3b1f49;
   opacity: 0;
   transition: visibility 0.2s ease, opacity 0.2s ease;
+  border-radius: 8px;
 }
 
-.context-menu .menu-options:hover > .sub-menu {
+body .context-menu .menu-options:hover > .sub-menu,
+body .context-menu .sub-menu:hover {
   visibility: visible;
   opacity: 1;
 }
 
-.context-menu .sub-menu .menu-options:hover > .sub-menu {
-  visibility: visible;
-  opacity: 1;
-}
-
-.context-menu .sub-menu:has(.menu-options:hover) > .menu-options:not(:hover) {
-  opacity: 0.3;
+body .context-menu:hover > .menu-options:not(:hover) {
   filter: blur(1px);
 }
 
-.context-menu .menu-options:hover,
-.context-menu .menu-options:hover .sub-menu,
-.context-menu .menu-options .sub-menu:hover {
-  opacity: 1;
+body .context-menu .sub-menu:hover > .menu-options:not(:hover),
+body .context-menu .sub-menu:hover .sub-menu:hover > .menu-options:not(:hover) {
+  filter: blur(1px);
+}
+
+body .context-menu .menu-options:hover,
+body .context-menu .menu-options:hover .sub-menu,
+body .context-menu .sub-menu:hover .menu-options:hover,
+body .context-menu .sub-menu:hover .sub-menu:hover {
   filter: none;
 }
 
-.context-menu .menu-options i {
+body .context-menu .menu-options i {
   float: right;
   order: 1;
   font-size: 1.2em;
