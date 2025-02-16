@@ -61,7 +61,7 @@ export class ContextMenu {
         container.append(span, arrow, submenu);
       } else {
         if (typeof callback === "function")
-          span.onclick = () => callback(document);
+          span.onclick = (event) => callback(document, event);
         container.appendChild(span);
       }
       parent.appendChild(container);

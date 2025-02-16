@@ -1,27 +1,13 @@
 import { ContextMenu } from "../opertatos/context/menu/context-menu.js";
+import { loadTable } from "./load-table.js";
 
 /** @type {HTMLDivElement} */
 const element = document.querySelector(".context-menu");
 
 const context = new ContextMenu({
-  "Test-1": (document) => console.log("test-1"),
-  "Test-2": (document) => console.log("test-2"),
-  "Test-3": (document) => console.log("test-3"),
-  "Sub-Menu": {
-    "sub-menu-1": (document) => console.log("sub-menu-1"),
-    "sub-menu-2": (document) => console.log("sub-menu-2"),
-    "sub-menu-3": (document) => console.log("sub-menu-3"),
-  },
-  "Sub-Menu-2": {
-    "sub-menu-1": (document) => console.log("sub-menu-1"),
-    "sub-menu-2": (document) => console.log("sub-menu-2"),
-    "sub-menu-3": (document) => console.log("sub-menu-3"),
-    "Sub-Menu-4": {
-      "sub-menu-1": (document) => console.log("sub-menu-1"),
-      "sub-menu-2": (document) => console.log("sub-menu-2"),
-      "sub-menu-3": (document) => console.log("sub-menu-3"),
-    },
-  },
+  "Force Refresh": async () => await loadTable(),
+  "Test-2": (document, event) => console.log("test-2"),
+  "Test-3": (document, event) => console.log("test-3"),
 });
 document.addEventListener("contextmenu", (event) => {
   event.preventDefault();

@@ -51,6 +51,7 @@
 /**
  * @callback MenuAction
  * @param {Document} document
+ * @param {MouseEventlick} event
  * @returns {void}
  */
 

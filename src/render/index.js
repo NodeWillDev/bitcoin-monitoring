@@ -1,2 +1,4 @@
-import "./load-table.js";
 import "./context-menu.js";
+import { loadTable } from "./load-table.js";
+
+setInterval(await loadTable(), 123000);
