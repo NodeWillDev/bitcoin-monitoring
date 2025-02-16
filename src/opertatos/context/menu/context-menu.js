@@ -42,34 +42,69 @@ export class ContextMenu {
    * @param {HTMLElement} parent
    * @param {ShapeContextMenu} discovery
    */
+
   show(document, parent, discovery = this.shape) {
     for (const [text, callback] of Object.entries(discovery)) {
       const container = this.createElement("div", {
         className: "menu-options",
       });
       const span = this.createElement("span", { textContent: text });
-      if (typeof callback === "object") {
+
+      if (typeof callback === "object" && callback !== null) {
+        const arrow = this.createElement("i", {
+          className: "fa-sharp fa-solid fa-caret-right",
+        });
         const submenu = this.createElement("div", { className: "sub-menu" });
-        for (const [subText, subCallback] of Object.entries(callback)) {
-          const subSpan = this.createElement("span", {
-            textContent: subText,
-            onclick:
-              typeof subCallback === "function"
-                ? () => subCallback(document)
-                : null,
-          });
-          submenu.appendChild(subSpan);
+
+        // Recursivamente cria os itens do submenu
+        this.show(document, submenu, callback);
+
+        container.append(span, arrow, submenu);
+      } else {
+        if (typeof callback === "function") {
+          span.onclick = () => callback(document);
         }
-        container.appendChild(submenu);
-      } else if (typeof callback === "function")
-        span.onclick = () => callback(document);
-      else this.show(document, container, callback);
-      container.appendChild(span);
+        container.appendChild(span);
+      }
+
       parent.appendChild(container);
     }
   }
 
+  // show(document, parent, discovery = this.shape) {
+  //   for (const [text, callback] of Object.entries(discovery)) {
+  //     const container = this.createElement("div", {
+  //       className: "menu-options",
+  //     });
+  //     const span = this.createElement("span", { textContent: text });
+  //     if (typeof callback === "object") {
+  //       const arrow = this.createElement("i", {
+  //         className: "fa-sharp fa-solid fa-caret-right",
+  //       });
+  //       console.log(callback);
+  //       const submenu = this.createElement("div", { className: "sub-menu" });
+  //       for (const [subText, subCallback] of Object.entries(callback)) {
+  //         const subSpan = this.createElement("span", {
+  //           textContent: subText,
+  //           onclick:
+  //             typeof subCallback === "function"
+  //               ? () => subCallback(document)
+  //               : null,
+  //         });
+  //         submenu.appendChild(subSpan);
+  //       }
+  //       container.appendChild(submenu);
+  //       container.appendChild(arrow);
+  //     } else if (typeof callback === "function")
+  //       span.onclick = () => callback(document);
+  //     else this.show(document, container, callback);
+  //     container.appendChild(span);
+  //     parent.appendChild(container);
+  //   }
+  // }
+
   /**
+   * @private
    * @template {keyof HTMLElementTagNameMap} K
    * @param {K} tag
    * @param {Partial<HTMLElementTagNameMap[K]>} [props={}]

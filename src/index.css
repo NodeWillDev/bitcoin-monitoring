@@ -146,7 +146,7 @@ body .context-menu {
   display: none;
   z-index: 10000;
   background-color: rgba(104, 101, 115, 0.03);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(5px);
   border-radius: 0 10px 10px 0px;
   border-left: 1px solid white;
 }
@@ -155,40 +155,55 @@ body .context-menu .menu-options {
   position: relative;
   padding: 2px;
   cursor: default;
-  width: calc(100% + 5px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% + 10px);
 }
 
-body .context-menu:has(.menu-options:hover) .menu-options:not(:hover) {
+body .context-menu:has(.menu-options:hover) > .menu-options:not(:hover),
+body
+  .context-menu
+  .sub-menu:has(.menu-options:hover)
+  > .menu-options:not(:hover) {
   opacity: 0.3;
   filter: blur(1px);
 }
-body .context-menu .menu-options span {
-  user-select: none;
-}
-body .context-menu .menu-options .sub-menu {
+
+.context-menu .menu-options .sub-menu {
   position: absolute;
-  background-color: red;
   top: 0;
   width: 100%;
   left: 100%;
   visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s ease, opacity 0.2s ease;
 }
 
+.context-menu .menu-options:hover > .sub-menu {
+  visibility: visible;
+  opacity: 1;
+}
+
+.context-menu .sub-menu .menu-options:hover > .sub-menu {
+  visibility: visible;
+  opacity: 1;
+}
+
+.context-menu .sub-menu:has(.menu-options:hover) > .menu-options:not(:hover) {
+  opacity: 0.3;
+  filter: blur(1px);
+}
+
+.context-menu .menu-options:hover,
 .context-menu .menu-options:hover .sub-menu,
 .context-menu .menu-options .sub-menu:hover {
-  visibility: visible;
+  opacity: 1;
+  filter: none;
 }
 
-/* body .context-menu .menu-options .sub-menu .sub-menu {
-  position: absolute;
-  background-color: red;
-  top: 100%;
-  width: 100%;
-  left: 100%;
-  visibility: hidden;
+.context-menu .menu-options i {
+  float: right;
+  order: 1;
+  font-size: 1.2em;
 }
-
-.context-menu .menu-options .sub-menu:hover .sub-menu,
-.context-menu .menu-options .sub-menu .sub-menu:hover {
-  visibility: visible;
-} */

@@ -12,6 +12,16 @@ const context = new ContextMenu({
     "sub-menu-2": (document) => console.log("sub-menu-2"),
     "sub-menu-3": (document) => console.log("sub-menu-3"),
   },
+  "Sub-Menu-2": {
+    "sub-menu-1": (document) => console.log("sub-menu-1"),
+    "sub-menu-2": (document) => console.log("sub-menu-2"),
+    "sub-menu-3": (document) => console.log("sub-menu-3"),
+    "Sub-Menu-4": {
+      "sub-menu-1": (document) => console.log("sub-menu-1"),
+      "sub-menu-2": (document) => console.log("sub-menu-2"),
+      "sub-menu-3": (document) => console.log("sub-menu-3"),
+    },
+  },
 });
 document.addEventListener("contextmenu", (event) => {
   event.preventDefault();
