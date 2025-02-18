@@ -13,15 +13,13 @@ app.whenReady().then(async () => {
     // transparent: true,
     icon: nativeImage.createFromPath("./src/assets/icon/bitcoin.ico"),
     webPreferences: {
-      sandbox: false,
-      contextIsolation: true,
       preload: import.meta.dirname + join("\\preload", "preload.js"),
     },
   });
   window.webContents.openDevTools();
   window.loadFile("./src/index.html");
 
-  ipcMain.on("test", (data) => {
+  ipcMain.on("test", (event, data) => {
     console.log(data);
   });
 });
