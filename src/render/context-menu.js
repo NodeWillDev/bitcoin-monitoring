@@ -6,7 +6,7 @@ const element = document.querySelector(".context-menu");
 
 const context = new ContextMenu({
   "Force Refresh": async () => await loadTable(),
-  "Full Screen": (document, event) => window.api.open(),
+  "Full Screen": (document, event) => window.monitoring.test(),
   "Test-3": (document, event) => console.log("test-3"),
 });
 document.addEventListener("contextmenu", (event) => {

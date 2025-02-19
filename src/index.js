@@ -20,6 +20,6 @@ app.whenReady().then(async () => {
   window.loadFile("./src/index.html");
 
   ipcMain.on("test", (event, data) => {
-    console.log(data);
+    console.log(data.data);
   });
 });
