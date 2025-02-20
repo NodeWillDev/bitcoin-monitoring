@@ -1,20 +1,19 @@
 {
     "compilerOptions": {
-        "module": "ESNext",
-        "moduleResolution": "Bundler",
-        "target": "ES2022",
-        "jsx": "react",
-        "allowImportingTsExtensions": true,
-        "strictNullChecks": true,
-        "strictFunctionTypes": true,
+        "module": "commonjs",
+        "target": "esnext",
+        "checkJs": true,
+        "allowJs": true,
+        "strict": true,
+        "noEmit": true,
         "paths": {
             "@types/*": [
                 "./src/types/*"
             ]
         }
     },
-    "exclude": [
-        "node_modules",
-        "**/node_modules/*"
+    "include": [
+        "./src/**/*.js",
+        "./src/types/**/*.d.ts"
     ]
 }

@@ -1,5 +1,6 @@
 export interface MonitoringAPI {
   test: () => void;
+  trem_doido: () => void;
 }
 
 declare global {

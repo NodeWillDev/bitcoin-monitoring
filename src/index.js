@@ -18,7 +18,6 @@ app.whenReady().then(async () => {
   });
   window.webContents.openDevTools();
   window.loadFile("./src/index.html");
-
   ipcMain.on("test", (event, data) => {
     console.log(data.data);
   });

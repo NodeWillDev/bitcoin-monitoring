@@ -1,8 +1,8 @@
 //i don't use require
 //why i think ugly
 //But here I need it :*(
-const { contextBridge, ipcRenderer } = require("electron");
+const { contextBridge, ipcRenderer, ipcMain } = require("electron");
 
 contextBridge.exposeInMainWorld("monitoring", {
-  test: () => {},
+  test: () => ipcRenderer.send("test", {}),
 });
