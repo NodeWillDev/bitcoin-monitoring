@@ -1,6 +1,10 @@
 import { join } from "node:path";
 import { BrowserWindow, app, ipcMain, nativeImage } from "electron";
 //
+//
+//
+//
+//
 app.whenReady().then(async () => {
   console.log(import.meta.dirname + join("\\preload", "preload.js"));
   const window = new BrowserWindow({
