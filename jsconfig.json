@@ -1,11 +1,10 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "esnext",
-        "checkJs": true,
-        "allowJs": true,
-        "strict": true,
-        "noEmit": true,
+        "target": "ES6",
+        // "allowJs": true,
+        // "strict": true,
+        // "noEmit": true,
         "paths": {
             "@types/*": [
                 "./src/types/*"
@@ -13,7 +12,6 @@
         }
     },
     "include": [
-        "./src/**/*.js",
-        "./src/types/**/*.d.ts"
+        "./src/types/index.d.js"
     ]
 }

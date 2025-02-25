@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "typeRoots": [
+            "./node_modules/@types",
+            "./src/types/electron/electron.d.ts",
+        ],
+        "paths": {
+            "electron": [
+                "./src/types/electron/electron.d.ts"
+            ]
+        }
+    },
+    "include": [
+        "src",
+        "test.ts",
+    ]
+}

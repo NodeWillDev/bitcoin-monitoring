@@ -60,5 +60,7 @@
  */
 
 /**
- * @type {ShapeContextMenu}
+ * @typedef {Object} IPCEvents
+ * @property {'test-1'} test_1
+ * @property {'test-2'} test_2
  */
