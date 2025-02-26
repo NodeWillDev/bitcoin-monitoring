@@ -5,7 +5,6 @@ declare module "electron" {
     }
 
     interface ContextBridge {
-      // Sobrescrevendo a função exposeInMainWorld com sua tipagem personalizada
       exposeInMainWorld(
         apiKey: "main",
         api: Record<string, unknown>,
