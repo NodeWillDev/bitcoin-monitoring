@@ -26,7 +26,7 @@
 
 # Install
 
-> git glone https://github.com/NodeWillDev/bitcoin-monitoring.git
+> git clone https://github.com/NodeWillDev/bitcoin-monitoring.git
 
 > cd bitcoin-monitoring
 
